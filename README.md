@@ -1,67 +1,142 @@
-# Furkan Akpınar — Yazılım ve Dijital Ajans
+<p align="center">
+  <img src="public/favicon.svg" alt="FA marka simgesi" width="72" height="72" />
+</p>
 
-Hizmetleri, çalışma yaklaşımını ve portföy projelerini tanıtan Türkçe web sitesi. Ana sayfa, hakkımda, hizmetler, sekiz hizmet detayı, referanslar ve iletişim sayfalarından oluşur.
+<h1 align="center">Furkan Akpınar</h1>
+
+<p align="center">
+  <strong>Yazılım &amp; Dijital Ajans</strong><br />
+  Fikirleri dijital güce dönüştüren tasarım, yazılım ve büyüme yaklaşımı.
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/React-19-b9ff66?style=flat-square&amp;labelColor=080b0a" alt="React 19" />
+  <img src="https://img.shields.io/badge/TypeScript-5.9-b9ff66?style=flat-square&amp;labelColor=080b0a" alt="TypeScript 5.9" />
+  <img src="https://img.shields.io/badge/Vite-8-b9ff66?style=flat-square&amp;labelColor=080b0a" alt="Vite 8" />
+  <a href="https://github.com/furkan-akpinar/furkan-akpinar-dijital-ajans/actions/workflows/quality.yml"><img src="https://github.com/furkan-akpinar/furkan-akpinar-dijital-ajans/actions/workflows/quality.yml/badge.svg?branch=main" alt="Kalite kontrolleri" /></a>
+</p>
+
+<p align="center">
+  <a href="#ekran-görüntüleri">Ekran görüntüleri</a> ·
+  <a href="#öne-çıkanlar">Öne çıkanlar</a> ·
+  <a href="#teknoloji">Teknoloji</a> ·
+  <a href="#kurulum">Kurulum</a> ·
+  <a href="#kontroller">Kontroller</a>
+</p>
+
+---
+
+Yazılım ve dijital ajans hizmetlerini, çalışma yaklaşımını ve portföy projelerini bir araya getiren Türkçe web sitesi. Koyu zemin, yeşil vurgular ve güçlü tipografi; ana sayfadan hizmet detaylarına kadar ortak bir görsel dil oluşturur.
+
+## Ekran görüntüleri
+
+10 Eylül 2026'da çalışan yerel üretim çıktısından alınan gerçek ekran görüntüleri. Masaüstü görünümü 1440 px, mobil görünümler 375 px genişliğindedir.
+
+![Masaüstü ana sayfa: yeşil başlık vurgusu, gezinme ve dijital çalışma süreci](docs/screenshots/desktop.webp)
+
+<details>
+  <summary><strong>Mobil ana sayfa ve hizmet detayı</strong></summary>
+  <br />
+  <p align="center">
+    <img src="docs/screenshots/mobile.webp" alt="Mobil ana sayfa: menü, giriş metni ve hizmet bağlantıları" width="280" />
+    &nbsp;
+    <img src="docs/screenshots/service-mobile.webp" alt="Mobil kurumsal web sitesi hizmet detayı" width="280" />
+  </p>
+</details>
+
+## Öne çıkanlar
+
+- **13 sayfa:** ana sayfa, hakkımda, hizmetler, sekiz hizmet detayı, referanslar ve iletişim.
+- **Hizmet odaklı içerik:** kapsam, beklenen sonuçlar ve açılır sık sorulan sorular alanları.
+- **Yedi portföy projesi:** proje açıklamaları, etiketler ve görsel önizlemeler.
+- **Duyarlı arayüz:** masaüstü, tablet ve mobil düzenler; sayfa geçişinde ve Escape ile kapanan mobil menü.
+- **Erişilebilir etkileşimler:** klavye gezinmesi, görünür odak, içeriğe geçiş bağlantısı, azaltılmış hareket desteği ve animasyon durdurma kontrolü.
+- **Yerel varlıklar:** optimize WebP görseller, Geist ve Geist Mono fontları; sayfaya özel başlıklar, açıklamalar ve özel 404 ekranı.
 
 ## Teknoloji
 
-React, TypeScript ve Next.js App Router API'lerini kullanan Vinext uygulaması. Vite ile derlenir; Cloudflare Workers ve Sites için paketlenir. Stiller Tailwind CSS ve özel CSS'ten, görseller yerel WebP dosyalarından oluşur. Bağımlılık sürümleri `package-lock.json` ile sabitlenir.
+| Katman | Kullanılan yapı |
+| --- | --- |
+| Arayüz | React 19, TypeScript 5.9 |
+| Uygulama | Vinext 1.0.0-beta.6 ile Next.js App Router API'leri |
+| Derleme ve çalışma zamanı | Vite 8, Cloudflare Vite eklentisi, Cloudflare Workers |
+| Tasarım | Tailwind CSS 4, özel CSS, yerel Geist fontları |
+| Kalite | ESLint, TypeScript, Node.js test çalıştırıcısı, Playwright, GitHub Actions |
 
-## Kurulum ve geliştirme
+`next/*` importları Vinext uyumluluk katmanını kullanır. Derleme ve sunucu komutları Vinext üzerinden çalışır. Kesin bağımlılık sürümleri [package.json](package.json) ve [package-lock.json](package-lock.json) içinde tutulur.
 
-Node.js 22.13 veya üzeri ve npm gerekir. Windows, macOS ve Linux'ta:
+## Kurulum
+
+**Node.js 22.13+** ve npm gerekir.
 
 ```sh
+git clone https://github.com/furkan-akpinar/furkan-akpinar-dijital-ajans.git
+cd furkan-akpinar-dijital-ajans
 npm ci
 npm run dev
 ```
 
-Geliştirme sunucusu `http://localhost:3000` adresinde açılır. Başka bilgisayardan kopyalanmış `node_modules` klasörünü kullanmayın; `npm ci` bağımlılıkları bulunduğunuz işletim sistemi için kurar.
+Geliştirme sunucusu: `http://localhost:3000`. `npm ci`, kilit dosyasındaki bağımlılıkları kullanılan işletim sistemi için kurar.
 
-## Kontroller ve üretim
+### Üretim derlemesi
+
+```sh
+npm run build
+npm run start -- --port 3001
+```
+
+Yerel Node üretim önizlemesi: `http://localhost:3001`. Derleme, Worker paketini de doğrular.
+
+## Kontroller
 
 ```sh
 npm run lint
 npm run typecheck
 npm test
-npm run start
-```
-
-`npm test` üretim derlemesini, Worker paket doğrulamasını ve tüm sayfaların HTML testlerini çalıştırır. Hazır derlemeyi yeniden kontrol etmek için `npm run validate:artifact` kullanılır. Yalnızca derlemek için `npm run build` çalıştırılabilir.
-
-Tarayıcı testleri:
-
-```sh
 npx playwright install chromium
 npm run test:e2e
 ```
 
-Önce `npm run build` çalıştırılmalıdır. Testler 4173 portunda üretim sunucusunu açar ve masaüstü, tablet, mobil ekranlarda sayfaları, görselleri, ağ ve konsol hatalarını, menüyü, klavyeyi, SSS açılır alanlarını, animasyon kontrollerini ve 404 dönüşünü doğrular. GitHub Actions, Windows ve Linux'ta kalite kontrollerini; Linux'ta tarayıcı testlerini çalıştırır.
+| Komut | Kapsam |
+| --- | --- |
+| `npm run lint` | ESLint; uyarılar da hata kabul edilir |
+| `npm run typecheck` | TypeScript tip kontrolü |
+| `npm test` | Üretim derlemesi, paket doğrulaması ve 16 HTML testi |
+| `npm run test:e2e` | Chromium'da 50 tarayıcı testi; sayfalar, gezinme, görseller, klavye, SSS, animasyonlar ve 404 |
+| `npm run validate:artifact` | Mevcut üretim paketinin tekrar doğrulanması |
 
-## Dosya yapısı
+Tarayıcı testleri önceden derlenmiş çıktıyı kullanır ve 4173 portunda sunucuyu kendisi başlatır. Düzen kontrolleri 320, 375, 768, 1024 ve 1440 px genişliklerini kapsar. [Quality iş akışı](.github/workflows/quality.yml), Windows ve Linux'ta kaynak kontrollerini ve üretim testlerini; Linux'ta ayrıca tarayıcı testlerini ve bağımlılık güvenlik denetimini çalıştırır.
 
-- `app/`: sayfalar, metadata, 404 ekranı ve ortak stiller.
-- `components/`: menü, kartlar, iletişim formu ve ortak sayfa alanları.
-- `lib/`: hizmet, proje ve gezinme içerikleri.
-- `public/`: favicon ve optimize edilmiş görseller.
-- `worker/`: Cloudflare Worker giriş noktası.
-- `build/`: kaynak kod olan Sites paketleme eklentisi; üretilmiş çıktı değildir.
-- `scripts/`: taşınabilir çalıştırma ve paket doğrulama komutları.
-- `tests/`: üretim HTML ve tarayıcı kontrolleri.
+## Proje yapısı
 
-## Yayın ve ortam değişkenleri
+```text
+app/          Sayfalar, metadata, ortak stiller ve 404
+components/   Gezinme, kartlar, form ve ortak arayüz alanları
+lib/          Hizmet, proje ve gezinme içerikleri
+public/       Favicon, WebP görseller ve lisanslı yerel fontlar
+worker/       Cloudflare Worker giriş noktası
+build/        Yayın paketleme eklentisinin kaynak kodu
+scripts/      Çalıştırma ve paket doğrulama komutları
+tests/        Üretim HTML ve tarayıcı testleri
+docs/         README ekran görüntüleri
+```
 
-Mevcut site için zorunlu ortam değişkeni, veritabanı veya gizli anahtar yoktur. `.env` dosyaları Git dışında tutulur. Gerçek bir entegrasyon eklenmeden örnek anahtar veya servis adresi tanımlanmamıştır.
+Hizmet ve portföy içerikleri [lib/site-data.ts](lib/site-data.ts) üzerinden düzenlenir. Proje kartlarına doğrulanmış yayın adresleri, isteğe bağlı `url` alanıyla eklenebilir.
 
-Mevcut Sites bağlantısı `.openai/hosting.json` içindedir. `build/sites-vite-plugin.ts`, bu yapılandırmayı `dist/.openai/hosting.json` olarak paketler. Yayın paketi `dist/server/index.js` Worker girişini ve `dist/client/` statik dosyalarını içerir. `.openai/hosting.json` ve `build/` yayın için gereklidir; `dist/`, `.vinext/`, `.wrangler/` ve `.sites-runtime/` üretilir ve Git'e eklenmez.
+## Yayın ve mevcut kapsam
 
-Site yalnızca bir statik dosya sunucusuna kopyalanarak yayımlanamaz; mevcut Worker dağıtım akışı kullanılmalıdır. Üretim domaini belirlenmediği için tahmini canonical URL veya sitemap domaini eklenmemiştir.
+Zorunlu ortam değişkeni, veritabanı veya gizli anahtar gerekmez. `.env` dosyaları Git dışında tutulur. Henüz doğrulanmış bir canlı yayın adresi bulunmadığından canonical adres ve sitemap domaini tanımlanmamıştır.
 
-## İletişim ve içerik
+Yayın, sunucu tarafını çalıştırabilen Cloudflare Workers altyapısını gerektirir. `dist/server/index.js` Worker girişidir; `dist/client/` statik varlıkları içerir. Yalnızca statik dosyaları GitHub Pages'e yüklemek yeterli değildir. Mevcut Sites paketleme bağlantısı [.openai/hosting.json](.openai/hosting.json) ve [build/sites-vite-plugin.ts](build/sites-vite-plugin.ts) içinde korunur; `dist/` çıktısı derleme sırasında oluşturulur.
 
-İletişim adresi ve gönderim servisi sonraki aşamaya bırakılmıştır. Form açık bir bilgilendirme ile pasiftir; veri toplamaz, mesaj göndermez ve başarı bildirimi göstermez. Etkinleştirmeden önce gerçek iletişim bilgisi, sunucu doğrulaması, gönderim servisi ve hata davranışı tamamlanmalıdır.
+**İletişim:** adres ve gönderim servisi daha sonra eklenecektir. Form bilgilendirme metniyle pasiftir; veri toplamaz, mesaj göndermez ve başarı bildirimi göstermez. Etkinleştirmek için gerçek iletişim bilgileri, sunucu doğrulaması ve gönderim/hata akışı tamamlanmalıdır. Portföy kartları mevcut durumda proje sunumu olarak kullanılabilir.
 
-Portföydeki dört eski yayın adresi 404, bir adres 401 döndürdüğü için aktif bağlantılar kaldırılmıştır. Çalışmalar ve önizleme görselleri bilgi kartı olarak korunur. Doğrulanmış yeni adresler `lib/site-data.ts` içindeki isteğe bağlı `url` alanına eklenebilir. Hizmet ve proje içerikleri `lib/site-data.ts` içinden düzenlenebilir. Üçüncü taraf yazılım lisansları ilgili paketlerde korunur. Yerel Geist ve Geist Mono fontlarının SIL Open Font License metinleri `public/fonts/` altındadır. Fontlar tarayıcıda dış servis isteği olmadan yüklenir.
+## Lisans ve atıflar
 
-## Bilinen teknik sınır
+Proje için ayrı bir lisans dosyası tanımlanmamıştır. Üçüncü taraf bağımlılıkların lisansları ilgili paketlerde korunur. Yerel fontlar SIL Open Font License kapsamındadır: [Geist](public/fonts/geist-LICENSE.txt) · [Geist Mono](public/fonts/geistmono-LICENSE.txt).
 
-Vinext'in Node üretim önizleme sunucusu, istemci yanıt tamamlanmadan bağlantıyı kapattığında zaman zaman `ERR_STREAM_UNABLE_TO_PIPE` günlüğü üretiyor. Bu durum tarayıcı testlerinde bir sayfa veya varlık yükleme hatasına yol açmadı; kütüphanenin akış kapatma davranışı olarak izlenmelidir. Testler Chromium ile yerel Windows ortamında çalıştırıldı. Gerçek Cloudflare yayını ve GitHub Actions sonuçları ayrıca yayın ortamında doğrulanmalıdır.
+README ekran görüntüleri bu uygulamanın kendi arayüzünden alınmıştır.
+
+<p align="center">
+  <strong>Furkan Akpınar</strong> · <a href="https://github.com/furkan-akpinar">GitHub</a>
+</p>
