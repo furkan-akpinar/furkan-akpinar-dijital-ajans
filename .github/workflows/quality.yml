@@ -24,6 +24,6 @@ jobs:
       - if: runner.os == 'Linux'
         run: npm audit
       - if: runner.os == 'Linux'
-        run: npx playwright install --with-deps chromium
+        run: npx playwright install --with-deps chromium webkit
       - if: runner.os == 'Linux'
         run: npm run test:e2e

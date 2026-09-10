@@ -1,4 +1,4 @@
-import { defineConfig } from "@playwright/test";
+import { defineConfig, devices } from "@playwright/test";
 
 export default defineConfig({
   testDir: "./tests/browser",
@@ -18,16 +18,30 @@ export default defineConfig({
     timeout: 60000,
   },
   projects: [
-    { name: "desktop", use: { viewport: { width: 1440, height: 900 } } },
+    {
+      name: "desktop",
+      testIgnore: "**/mobile-menu.spec.ts",
+      use: { viewport: { width: 1440, height: 900 } },
+    },
     {
       name: "tablet",
-      testIgnore: "**/breakpoints.spec.ts",
+      testIgnore: ["**/breakpoints.spec.ts", "**/mobile-menu.spec.ts"],
       use: { viewport: { width: 768, height: 1024 } },
     },
     {
       name: "mobile",
-      testIgnore: "**/breakpoints.spec.ts",
+      testIgnore: ["**/breakpoints.spec.ts", "**/mobile-menu.spec.ts"],
       use: { viewport: { width: 375, height: 812 } },
+    },
+    {
+      name: "android-menu",
+      testMatch: "**/mobile-menu.spec.ts",
+      use: { ...devices["Pixel 7"], browserName: "chromium" },
+    },
+    {
+      name: "iphone-menu",
+      testMatch: "**/mobile-menu.spec.ts",
+      use: { ...devices["iPhone 13"], browserName: "webkit" },
     },
   ],
 });

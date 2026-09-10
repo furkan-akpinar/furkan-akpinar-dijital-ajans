@@ -97,7 +97,7 @@ Yerel Node üretim önizlemesi: `http://localhost:3001`. Derleme, Worker paketin
 npm run lint
 npm run typecheck
 npm test
-npx playwright install chromium
+npx playwright install chromium webkit
 npm run test:e2e
 ```
 
@@ -106,7 +106,7 @@ npm run test:e2e
 | `npm run lint` | ESLint; uyarılar da hata kabul edilir |
 | `npm run typecheck` | TypeScript tip kontrolü |
 | `npm test` | Üretim derlemesi, paket doğrulaması ve 16 HTML testi |
-| `npm run test:e2e` | Chromium'da 50 tarayıcı testi; sayfalar, gezinme, görseller, klavye, SSS, animasyonlar ve 404 |
+| `npm run test:e2e` | 54 tarayıcı testi; Chromium'da genel kontroller, Android/Chromium ve iPhone/WebKit profillerinde dokunmatik menü geçişleri |
 | `npm run validate:artifact` | Mevcut üretim paketinin tekrar doğrulanması |
 
 Tarayıcı testleri önceden derlenmiş çıktıyı kullanır ve 4173 portunda sunucuyu kendisi başlatır. Düzen kontrolleri 320, 375, 768, 1024 ve 1440 px genişliklerini kapsar. [Quality iş akışı](.github/workflows/quality.yml), Windows ve Linux'ta kaynak kontrollerini ve üretim testlerini; Linux'ta ayrıca tarayıcı testlerini ve bağımlılık güvenlik denetimini çalıştırır.
