@@ -10,6 +10,10 @@
 </p>
 
 <p align="center">
+  <a href="https://furkan-akpinar-dijital-ajans.furkan-akpinar.workers.dev"><strong>Canlı siteyi ziyaret et ↗</strong></a>
+</p>
+
+<p align="center">
   <img src="https://img.shields.io/badge/React-19-b9ff66?style=flat-square&amp;labelColor=080b0a" alt="React 19" />
   <img src="https://img.shields.io/badge/TypeScript-5.9-b9ff66?style=flat-square&amp;labelColor=080b0a" alt="TypeScript 5.9" />
   <img src="https://img.shields.io/badge/Vite-8-b9ff66?style=flat-square&amp;labelColor=080b0a" alt="Vite 8" />
@@ -125,7 +129,9 @@ Hizmet ve portföy içerikleri [lib/site-data.ts](lib/site-data.ts) üzerinden d
 
 ## Yayın ve mevcut kapsam
 
-Zorunlu ortam değişkeni, veritabanı veya gizli anahtar gerekmez. `.env` dosyaları Git dışında tutulur. Henüz doğrulanmış bir canlı yayın adresi bulunmadığından canonical adres ve sitemap domaini tanımlanmamıştır.
+**Canlı site:** [furkan-akpinar-dijital-ajans.furkan-akpinar.workers.dev](https://furkan-akpinar-dijital-ajans.furkan-akpinar.workers.dev)
+
+Site Cloudflare Workers üzerinde yayımlanır. Zorunlu ortam değişkeni, veritabanı veya gizli anahtar gerekmez. `.env` dosyaları Git dışında tutulur. Canonical URL ve sitemap yapılandırması henüz eklenmemiştir.
 
 Yayın, sunucu tarafını çalıştırabilen Cloudflare Workers altyapısını gerektirir. `dist/server/index.js` Worker girişidir; `dist/client/` statik varlıkları içerir. Yalnızca statik dosyaları GitHub Pages'e yüklemek yeterli değildir. Mevcut Sites paketleme bağlantısı [.openai/hosting.json](.openai/hosting.json) ve [build/sites-vite-plugin.ts](build/sites-vite-plugin.ts) içinde korunur; `dist/` çıktısı derleme sırasında oluşturulur.
 
