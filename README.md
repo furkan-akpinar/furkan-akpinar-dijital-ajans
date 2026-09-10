@@ -34,17 +34,15 @@ Yazılım ve dijital ajans hizmetlerini, çalışma yaklaşımını ve portföy 
 
 ## Ekran görüntüleri
 
-10 Eylül 2026'da çalışan yerel üretim çıktısından alınan gerçek ekran görüntüleri. Masaüstü görünümü 1440 px, mobil görünümler 375 px genişliğindedir.
+10 Eylül 2026'da çalışan yerel üretim çıktısından alınan gerçek ekran görüntüleri. Masaüstü görünümü 1440 px, mobil görünüm 375 px genişliğindedir.
 
 ![Masaüstü ana sayfa: yeşil başlık vurgusu, gezinme ve dijital çalışma süreci](docs/screenshots/desktop.webp)
 
 <details>
-  <summary><strong>Mobil ana sayfa ve hizmet detayı</strong></summary>
+  <summary><strong>Mobil ana sayfa</strong></summary>
   <br />
   <p align="center">
     <img src="docs/screenshots/mobile.webp" alt="Mobil ana sayfa: menü, giriş metni ve hizmet bağlantıları" width="280" />
-    &nbsp;
-    <img src="docs/screenshots/service-mobile.webp" alt="Mobil kurumsal web sitesi hizmet detayı" width="280" />
   </p>
 </details>
 
