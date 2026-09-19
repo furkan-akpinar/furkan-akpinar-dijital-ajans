@@ -10,10 +10,15 @@ test("brief validates input, stays local, copies and invalidates on edits", asyn
   const origin = new URL(page.url()).origin;
   page.on("request", (request) => {
     const url = new URL(request.url());
-    // Route prefetch may finish loading code chunks during the interaction.
-    const staticChunk = request.method() === "GET" && !request.postData() &&
-      url.origin === origin && url.pathname.startsWith("/_next/static/") && !url.search;
-    if (!staticChunk) requests.push(request.url());
+    // Visible navigation links can prefetch pages and code during scrolling.
+    const staticChunk = url.pathname.startsWith("/_next/static/") && !url.search;
+    const navigationPage = ["/", "/hakkimda", "/hizmetler", "/referanslar", "/iletisim"].includes(url.pathname) ||
+      /^\/hizmetler\/[a-z-]+$/.test(url.pathname);
+    const routePrefetch = navigationPage && url.searchParams.has("_rsc") &&
+      [...url.searchParams.keys()].every((key) => key === "_rsc");
+    const backgroundGet = request.method() === "GET" && !request.postData() &&
+      url.origin === origin && (staticChunk || routePrefetch);
+    if (!backgroundGet) requests.push(request.url());
   });
 
   await prepare.click();
