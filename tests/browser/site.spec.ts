@@ -1,5 +1,5 @@
 import { expect, test } from "@playwright/test";
-import { services, projects } from "../../lib/site-data";
+import { services } from "../../lib/site-data";
 
 const routes = [
   "/",
@@ -121,8 +121,8 @@ test("navigation, keyboard focus and menu closing", async ({
   await page.getByRole("link", { name: "Bu Hizmet İçin Görüşelim" }).click();
   await expect(page).toHaveURL(/\/iletisim$/);
   await expect(
-    page.getByRole("button", { name: "Gönderim kullanılamıyor" }),
-  ).toBeDisabled();
+    page.getByRole("button", { name: "Proje Özeti Hazırla" }),
+  ).toBeEnabled();
 });
 
 test("motion controls and reduced-motion preference", async ({ page }) => {
@@ -156,10 +156,11 @@ test("404 recovery and project links", async ({ page }) => {
   await page.getByRole("link", { name: "Ana Sayfaya Dön" }).click();
   await expect(page).toHaveURL("/");
   await page.goto("/referanslar");
-  await expect(page.locator(".project-live-link")).toHaveCount(
-    projects.filter((project) => project.url).length,
-  );
-  for (const link of await page.locator(".project-live-link").all()) {
+  const ezo = page.getByRole("article").filter({ has: page.getByRole("heading", { name: "Ezo Eylül Sağır" }) });
+  await expect(ezo.getByRole("link", { name: /canlı demosunu/ })).toHaveAttribute("href", "https://furkan-akpinar.github.io/ezo-eylul-sagir-interactive/");
+  await expect(ezo.getByRole("link", { name: /kaynak kodunu/ })).toHaveAttribute("href", "https://github.com/furkan-akpinar/ezo-eylul-sagir-interactive");
+  await expect(page.locator('.project-card a[href*="chatgpt.site"]')).toHaveCount(0);
+  for (const link of await page.locator(".project-card a").all()) {
     await expect(link).toHaveAttribute("target", "_blank");
     await expect(link).toHaveAttribute("rel", /noreferrer/);
     await expect(link).toHaveAttribute("href", /^https:\/\//);

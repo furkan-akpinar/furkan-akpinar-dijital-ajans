@@ -101,6 +101,20 @@ export function ProjectCard({
         </div>
         <p>{project.description}</p>
         <span className="project-type">{project.type}</span>
+        {(project.url || project.sourceUrl) && (
+          <div className="project-actions">
+            {project.url && (
+              <a href={project.url} target="_blank" rel="noopener noreferrer" aria-label={`${project.title} canlı demosunu yeni sekmede aç`}>
+                Canlı Demo ↗
+              </a>
+            )}
+            {project.sourceUrl && (
+              <a href={project.sourceUrl} target="_blank" rel="noopener noreferrer" aria-label={`${project.title} kaynak kodunu GitHub'da yeni sekmede aç`}>
+                Kaynak Kod ↗
+              </a>
+            )}
+          </div>
+        )}
       </div>
     </article>
   );
