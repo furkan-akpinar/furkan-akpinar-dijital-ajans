@@ -70,9 +70,10 @@ for (const route of ["/bulunamayan-sayfa", "/hizmetler/bulunamayan-hizmet"]) {
   });
 }
 
-test("contact form cannot pretend to send before configuration", async () => {
+test("local brief form stays inert before hydration and makes no send claim", async () => {
   const html = await (await render("/iletisim")).text();
   assert.match(html, /<fieldset[^>]*disabled/);
-  assert.match(html, /Bu form üzerinden bilgi gönderilemez/);
-  assert.doesNotMatch(html, /form-success|Proje notun hazır|Bilgiler revizede/);
+  assert.match(html, /Bilgileriniz gönderilmez/);
+  assert.match(html, /JavaScript açık olmalıdır/);
+  assert.doesNotMatch(html, /mailto:|tel:|form-success/);
 });

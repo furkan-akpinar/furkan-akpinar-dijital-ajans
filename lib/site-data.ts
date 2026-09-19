@@ -367,6 +367,7 @@ export type Project = {
   tone: string;
   label: string;
   url?: string;
+  sourceUrl?: string;
   image?: string;
   imageAlt?: string;
   previewPosition?: string;
@@ -381,6 +382,8 @@ export const projects: Project[] = [
       "Koyu, editoryal görsel dil ve proje odaklı çok sayfalı portföy deneyimi.",
     tone: "olive",
     label: "Gerçek Portföy Projesi",
+    url: "https://furkan-akpinar.github.io/ezo-eylul-sagir-interactive/",
+    sourceUrl: "https://github.com/furkan-akpinar/ezo-eylul-sagir-interactive",
   },
   {
     title: "Sude Naz Zülal",

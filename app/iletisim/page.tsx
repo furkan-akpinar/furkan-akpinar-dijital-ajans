@@ -27,8 +27,9 @@ export default function Page() {
             <span className="section-kicker">Projeyi Anlat</span>
             <h2>İyi bir başlangıç için birkaç bilgi yeterli.</h2>
             <p>
-              Proje görüşmesinde hedefinizi, ihtiyacınız olan hizmeti ve varsa
-              zaman planınızı birlikte değerlendiririz.
+              Hedefinizi, ihtiyacınız olan hizmeti ve varsa zaman planınızı
+              bir proje özetine dönüştürün. Bu sayfada henüz mesaj gönderimi
+              bulunmuyor; hazırladığınız özeti kopyalayıp saklayabilirsiniz.
             </p>
             <div className="contact-info">
               <div>
